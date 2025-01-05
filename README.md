@@ -1,50 +1,39 @@
-# Welcome to your Expo app 👋
+# Fashion App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Bu proje, Expo kullanarak oluşturulmuş bir moda uygulamasıdır.
 
-## Get started
+## Başlarken
 
-1. Install dependencies
+### Gereksinimler
+
+- Node.js
+- npm veya yarn
+- Expo CLI
+
+### Kurulum
+
+1. Bağımlılıkları yükleyin:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Uygulamayı başlatın:
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+### Stripe Entegrasyonu
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Bu uygulama, Stripe ödeme işlemleri için kullanılmaktadır. Stripe API anahtarlarınızı `.env` dosyasına eklemeyi unutmayın:
+STRIPE_SECRET_KEY=sk_test_XXXXXXXXXXXXXXXXXXXXXXXX
+STRIPE_PUBLISH_KEY=pk_test_XXXXXXXXXXXXXXXXXXXXXXXX
+### Ödeme İşlemleri
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Ödeme işlemleri için `PaymentRoutes.ts` dosyasında Stripe ile ilgili ayarlar yapılmıştır. Aşağıdaki kod, Stripe'ı başlatmak için kullanılmaktadır:
+typescript:routers/PaymentRoutes.ts
+const stripe = require("stripe")(
+process.env.STRIPE_SECRET_KEY!
+);
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
